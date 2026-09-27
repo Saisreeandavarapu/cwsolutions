@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-industrial-dark: #0B1623;
+    --color-industrial-navy: #102235;
+    --color-industrial-steel: #2567A8;
+    --color-industrial-bright: #1687E8;
+    --color-industrial-amber: #2567A8;
+    --color-industrial-yellow: #2567A8;
+    --color-industrial-softblue: #EAF4FC;
+    --color-industrial-offwhite: #F7F8FA;
+    --color-industrial-border: #D9E0E7;
+    --color-industrial-graphite: #1F2933;
+    --color-industrial-muted: #667085;
+  }
+
+  html,
+  body {
+    overflow-x: clip;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom Technical styling utilities */
+.technical-grid-pattern {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, rgba(17, 24, 39, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 24, 39, 0.04) 1px, transparent 1px);
+}
+
+.technical-grid-dark {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F6F8FA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* Hide scrollbar for mobile rails */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Hero Auto-scroll Vertical Gallery Animations */
+@keyframes heroScrollUp {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes heroScrollDown {
+  0% {
+    transform: translateY(-50%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hero-scroll-track-up {
+  animation: heroScrollUp 28s linear infinite;
+  will-change: transform;
+}
+
+.hero-scroll-track-down {
+  animation: heroScrollDown 32s linear infinite;
+  will-change: transform;
+}
+
+.hero-scroll-track-up:hover,
+.hero-scroll-track-down:hover {
+  animation-play-state: paused;
+}
+
+.hero-gallery-mask {
+  mask-image: linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-scroll-track-up,
+  .hero-scroll-track-down {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Horizontal Trust Highlights Marquee */
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 26s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-left:hover {
+  animation-play-state: paused;
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left {
+    animation: none !important;
+    transform: none !important;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Hero Autoplay Progress Bar */
+@keyframes heroProgress {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.animate-hero-progress {
+  animation: heroProgress 4.5s linear forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-progress {
+    animation: none !important;
+    transform: none !important;
+  }
+}
