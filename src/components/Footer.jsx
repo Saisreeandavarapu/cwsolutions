@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, ArrowRight, ShieldCheck, Clock } from 'lucide-react';
 import { COMPANY_INFO } from '../data/company';
+import BrandLogo from './BrandLogo';
 
 export default function Footer({ onRequestQuote }) {
   const currentYear = 2026;
@@ -24,9 +25,7 @@ export default function Footer({ onRequestQuote }) {
       <div className="bg-industrial-dark border-b border-gray-800 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-industrial-steel text-white font-mono font-bold flex items-center justify-center rounded-sm">
-              CWS
-            </div>
+            <BrandLogo iconOnly size="sm" />
             <div>
               <p className="text-white font-bold text-base tracking-wide">
                 Need customized height access or lifting solutions?
@@ -61,9 +60,7 @@ export default function Footer({ onRequestQuote }) {
           {/* Column 1: Company Profile */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <span className="text-white font-extrabold text-lg tracking-tight font-mono">
-                CREATIVE WORK SOLUTIONS
-              </span>
+              <BrandLogo size="default" />
             </div>
             <p className="text-gray-400 text-xs leading-relaxed">
               Industrial equipment supplier based in Hyderabad, Telangana. We provide dependable aluminium ladders, FRP non-conductive systems, tower ladders, scissor lifts, drum lifters, material trolleys, and aluminium scaffolding.

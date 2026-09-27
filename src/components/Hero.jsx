@@ -138,7 +138,7 @@ export default function Hero({ onRequestQuote }) {
       tabIndex={0}
       onKeyDown={handleKeyDown}
       aria-label="Hero Industrial Equipment Showcase"
-      className="relative w-full min-h-[720px] sm:min-h-[780px] lg:min-h-[840px] xl:min-h-[920px] bg-[#0B1623] text-white overflow-hidden flex items-center outline-none"
+      className="relative w-full min-h-[580px] sm:min-h-[640px] lg:min-h-[680px] xl:min-h-[720px] bg-[#0B1623] text-white overflow-hidden flex items-center outline-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}
@@ -200,30 +200,30 @@ export default function Hero({ onRequestQuote }) {
       </div>
 
       {/* 3. HERO CONTENT WRAPPER */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 lg:pt-44 pb-20 lg:pb-28">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32 pb-14 sm:pb-16 lg:pb-20">
         <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl">
 
           {/* Staggered Independent Animated Slide Content */}
           <AnimatePresence mode="wait">
             <motion.div
               key={slide.id}
-              className="space-y-4 sm:space-y-5"
+              className="space-y-2.5 sm:space-y-3.5"
             >
               {/* Eyebrow: Fade + Slide */}
               <motion.div
                 initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -14 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.45, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="flex items-center gap-2.5"
+                className="flex items-center gap-2"
               >
-                <span className="w-8 h-[2px] bg-[#2567A8] flex-shrink-0" />
-                <span className="text-[11px] sm:text-xs font-mono font-bold tracking-[0.22em] text-[#8E9AA8] uppercase">
+                <span className="w-7 h-[2px] bg-[#2567A8] flex-shrink-0" />
+                <span className="text-[11px] sm:text-xs font-mono font-bold tracking-[0.2em] text-[#8E9AA8] uppercase">
                   {slide.eyebrow}
                 </span>
               </motion.div>
 
               {/* Main Heading: Staggered Line-by-Line Reveal */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white tracking-tight leading-[1.08]">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
                 <motion.span
                   initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 22 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -236,7 +236,7 @@ export default function Hero({ onRequestQuote }) {
                   initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 22 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.26, ease: [0.16, 1, 0.3, 1] }}
-                  className="block text-[#1687E8] mt-1"
+                  className="block text-[#1687E8] mt-0.5 sm:mt-1"
                 >
                   {slide.titleLine2}
                 </motion.span>
@@ -247,7 +247,7 @@ export default function Hero({ onRequestQuote }) {
                 initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.34, ease: [0.16, 1, 0.3, 1] }}
-                className="text-sm sm:text-base lg:text-lg text-[#8E9AA8] max-w-lg leading-relaxed pt-1"
+                className="text-sm sm:text-base text-[#8E9AA8] max-w-lg leading-normal sm:leading-relaxed"
               >
                 {slide.description}
               </motion.p>
@@ -257,13 +257,13 @@ export default function Hero({ onRequestQuote }) {
                 initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.42, ease: [0.16, 1, 0.3, 1] }}
-                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-4"
+                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 sm:pt-2.5"
               >
                 <Link to={slide.primaryCtaLink} className="sm:w-auto">
                   <motion.div
                     whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
                     whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-                    className="group w-full sm:w-auto rounded-full px-7 py-3.5 sm:py-4 bg-[#2567A8] hover:bg-[#1F558C] text-white font-semibold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all duration-300 cursor-pointer"
+                    className="group w-full sm:w-auto rounded-full px-6 py-3 sm:py-3.5 bg-[#2567A8] hover:bg-[#1F558C] text-white font-semibold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all duration-300 cursor-pointer"
                   >
                     <span>{slide.primaryCtaText}</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
@@ -276,7 +276,7 @@ export default function Hero({ onRequestQuote }) {
                     onClick={onRequestQuote}
                     whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
                     whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-                    className="w-full sm:w-auto rounded-full px-7 py-3.5 sm:py-4 bg-transparent hover:bg-white/10 border border-white/25 hover:border-white/50 text-white font-semibold text-xs sm:text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full sm:w-auto rounded-full px-6 py-3 sm:py-3.5 bg-transparent hover:bg-white/10 border border-white/25 hover:border-white/50 text-white font-semibold text-xs sm:text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <span>Request Quotation</span>
                   </motion.button>
@@ -285,7 +285,7 @@ export default function Hero({ onRequestQuote }) {
                     <motion.div
                       whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
                       whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-                      className="w-full sm:w-auto rounded-full px-7 py-3.5 sm:py-4 bg-transparent hover:bg-white/10 border border-white/25 hover:border-white/50 text-white font-semibold text-xs sm:text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full sm:w-auto rounded-full px-6 py-3 sm:py-3.5 bg-transparent hover:bg-white/10 border border-white/25 hover:border-white/50 text-white font-semibold text-xs sm:text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <span>{slide.secondaryCtaText}</span>
                     </motion.div>
@@ -296,7 +296,7 @@ export default function Hero({ onRequestQuote }) {
           </AnimatePresence>
 
           {/* 4. REFINED HERO NAVIGATION & PROGRESS BAR */}
-          <div className="pt-10 sm:pt-14 flex items-center gap-6">
+          <div className="pt-6 sm:pt-8 flex items-center gap-5">
 
             {/* Slide Index Counter (01 / 05) */}
             <div className="font-mono text-xs text-[#8E9AA8] font-bold tracking-widest flex items-center gap-1.5 select-none">

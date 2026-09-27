@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Search, ArrowRight, ChevronRight, X, Menu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { COMPANY_INFO } from '../data/company';
+import BrandLogo from './BrandLogo';
 
 export default function Header({ onRequestQuote }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -66,23 +67,10 @@ export default function Header({ onRequestQuote }) {
           {/* 1. BRAND LOGO */}
           <Link
             to="/"
-            className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none flex-shrink-0"
+            className="flex items-center focus:outline-none flex-shrink-0"
             aria-label="Creative Work Solutions Home"
           >
-            {/* Circular Industrial Monogram */}
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-tr from-[#2567A8] to-[#1687E8] p-[2px] flex items-center justify-center flex-shrink-0">
-              <div className="w-full h-full bg-[#0B1623] rounded-full flex items-center justify-center">
-                <span className="font-extrabold text-[#2567A8] font-mono text-sm sm:text-base">C</span>
-              </div>
-            </div>
-            <div className="flex flex-col min-w-0">
-              <span className="text-sm sm:text-base lg:text-lg font-extrabold tracking-tight text-white leading-tight group-hover:text-[#2567A8] transition-colors truncate">
-                CREATIVE
-              </span>
-              <span className="text-[8px] sm:text-[9px] font-bold tracking-[0.22em] text-[#8E9AA8] uppercase truncate">
-                WORK SOLUTIONS
-              </span>
-            </div>
+            <BrandLogo />
           </Link>
 
           {/* 2. CENTER NAVIGATION LINKS (With blue underline indicator) */}
