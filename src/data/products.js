@@ -1,37 +1,4 @@
-// Product Images Imports
-import imgTower1 from '../assets/products/tower/cws-tower-ladder-41-50ft.jpeg';
-import img105Ext from '../assets/products/aluminium/cws-105-platform-step-ladder-extension.jpeg';
-import img111Tower from '../assets/products/tower/cws-111-aluminium-tiltable-tower-ladder.jpeg';
-import img115Trolley14ft from '../assets/products/trolley/cws-115-aluminium-trolley-ladder-14ft.jpeg';
-import img111Telescopic from '../assets/products/tower/cws-111-telescopic-maintenance-ladder-lift.jpeg';
-import img115bBucket from '../assets/products/tower/cws-115b-tiltable-tower-ladder-bucket.jpeg';
-import img111Bucket from '../assets/products/tower/cws-111-aluminium-tiltable-tower-bucket.jpeg';
-import img111Sheet from '../assets/products/tower/cws-111-tiltable-tower-catalog-sheet.jpeg';
-import img108Handrail from '../assets/products/aluminium/cws-108-ladder-hand-rail.jpeg';
-import img244Extension from '../assets/products/frp/cws-244-frp-wall-extension-ladder.jpeg';
-import img242Platform from '../assets/products/frp/cws-242-frp-self-supported-platform-ladder.jpeg';
-import img243Shelf from '../assets/products/frp/cws-243-frp-shelf-ladder.jpeg';
-import img303Scissor from '../assets/products/lifting/cws-303-16m-hydraulic-scissor-lift.jpeg';
-import img307Drum from '../assets/products/material-handling/cws-307-hydraulic-drum-lifter.jpeg';
-import img303Mast from '../assets/products/lifting/cws-303-dual-mast-lift-12m.jpeg';
-import img308Trolley from '../assets/products/material-handling/cws-308-heavy-duty-goods-trolley.jpeg';
-import img242Trestle from '../assets/products/frp/cws-242-frp-trestle-collapsible-platform.jpeg';
-import img242Series from '../assets/products/frp/cws-242-frp-step-ladder-series.jpeg';
-import img105Wheels from '../assets/products/aluminium/cws-105-self-support-extension-wheels.jpeg';
-import img130Stool from '../assets/products/aluminium/cws-130-stool-ladder.jpeg';
-import img115Step2250 from '../assets/products/trolley/cws-115-platform-trolley-step-ladder-2250mm.jpeg';
-import img115StepIS4571 from '../assets/products/trolley/cws-115-platform-trolley-step-is4571.jpeg';
-import img108Step3m from '../assets/products/aluminium/cws-108-step-ladder-3-meter.jpeg';
-import img242Step8ft from '../assets/products/frp/cws-242-frp-step-ladder-8ft.jpeg';
-import img111Mtr from '../assets/products/tower/cws-111-mtr-tiltable-tower-11m.jpeg';
-import img301Scissor from '../assets/products/lifting/cws-301-mobile-scissor-lift.jpeg';
-import img111Square from '../assets/products/tower/cws-111-telescopic-square-tower-ladder.jpeg';
-import img111NoBucket from '../assets/products/tower/cws-111-tiltable-tower-without-bucket.jpeg';
-import img242Trestle12ft from '../assets/products/frp/cws-242-frp-step-trestle-12ft.jpeg';
-import img101Tower14m from '../assets/products/scaffolding/cws-101-double-width-mobile-aluminium-tower-14m.jpeg';
-import img108Foldable7 from '../assets/products/aluminium/cws-108-foldable-7plus1-step.jpeg';
-import img108Foldable5 from '../assets/products/aluminium/cws-108-foldable-5-step.jpeg';
-import img101Scaffolding from '../assets/products/scaffolding/cws-101-aluminium-scaffolding-zigzag-double-width.jpeg';
+import { PRODUCT_IMAGES } from './productImages.js';
 
 export const PRODUCTS = [
   {
@@ -43,8 +10,9 @@ export const PRODUCTS = [
     material: 'Aluminium',
     keySpec: 'Reach Height: 41–50 ft | Load: 120–150 kg',
     shortDescription: 'High-reach access aluminium tower ladder with adjustable height, secure platform, and special locking mechanism.',
-    image: imgTower1,
-    gallery: [imgTower1],
+    image: PRODUCT_IMAGES.tiltTowerFront,
+    images: [PRODUCT_IMAGES.tiltTowerFront, PRODUCT_IMAGES.tiltTowerAngle1, PRODUCT_IMAGES.tiltTowerAngle2, PRODUCT_IMAGES.tiltTowerTall, PRODUCT_IMAGES.tiltTowerRaised],
+    gallery: [PRODUCT_IMAGES.tiltTowerFront, PRODUCT_IMAGES.tiltTowerAngle1, PRODUCT_IMAGES.tiltTowerAngle2, PRODUCT_IMAGES.tiltTowerTall, PRODUCT_IMAGES.tiltTowerRaised],
     specifications: {
       'Model': 'Not specified',
       'Reach Height': '41–50 ft',
@@ -76,8 +44,9 @@ export const PRODUCTS = [
     material: 'Aluminium',
     keySpec: 'Total Height: ~13 ft | Load: 150 kg',
     shortDescription: 'Dual-purpose platform step ladder with smooth extension mechanism, wide work platform, and rugged anti-slip feet.',
-    image: img105Ext,
-    gallery: [img105Ext],
+    image: PRODUCT_IMAGES.aTelescopic,
+    images: [PRODUCT_IMAGES.aTelescopic],
+    gallery: [PRODUCT_IMAGES.aTelescopic],
     specifications: {
       'Model': 'CWS 105',
       'Type': 'Platform Step Ladder with Extension',
@@ -107,8 +76,9 @@ export const PRODUCTS = [
     material: 'High-grade aluminium with steel base',
     keySpec: 'Working Height: up to ~36 ft | Load: 150 kg',
     shortDescription: 'Heavy-duty tiltable tower ladder with manual tilting mechanism, robust steel base, and solid rubber/PU mobility wheels.',
-    image: img111Tower,
-    gallery: [img111Tower, img111Sheet],
+    image: PRODUCT_IMAGES.tiltTowerFront,
+    images: [PRODUCT_IMAGES.tiltTowerFront, PRODUCT_IMAGES.tiltTowerAngle1, PRODUCT_IMAGES.tiltTowerAngle2, PRODUCT_IMAGES.tiltTowerRaised],
+    gallery: [PRODUCT_IMAGES.tiltTowerFront, PRODUCT_IMAGES.tiltTowerAngle1, PRODUCT_IMAGES.tiltTowerAngle2, PRODUCT_IMAGES.tiltTowerRaised],
     specifications: {
       'Model': 'CWS 111',
       'Type': 'Aluminium Tiltable Tower Ladder',
@@ -140,8 +110,9 @@ export const PRODUCTS = [
     material: 'Aluminium with MS trolley frame',
     keySpec: '14 ft Ladder | Load Capacity: 120 kg',
     shortDescription: 'Mobile warehouse trolley ladder featuring 11 minimum steps, 508×508mm platform, nylon wheels with brakes, and MS support frame.',
-    image: img115Trolley14ft,
-    gallery: [img115Trolley14ft, img115Step2250, img115StepIS4571],
+    image: PRODUCT_IMAGES.trolleyLadder1,
+    images: [PRODUCT_IMAGES.trolleyLadder1, PRODUCT_IMAGES.trolleyLadder2, PRODUCT_IMAGES.trolleyLadderSide],
+    gallery: [PRODUCT_IMAGES.trolleyLadder1, PRODUCT_IMAGES.trolleyLadder2, PRODUCT_IMAGES.trolleyLadderSide],
     specifications: {
       'Model': 'CWS 115',
       'Ladder Length': 'Approximately 14 ft',
@@ -173,8 +144,9 @@ export const PRODUCTS = [
     material: 'Mild steel & aluminium',
     keySpec: 'Max Working Height: ~50 ft | Load: 150 kg',
     shortDescription: 'Telescopic maintenance ladder lift engineered with adjustable working heights up to 50 feet and 4 adjustable support stabilizer legs.',
-    image: img111Telescopic,
-    gallery: [img111Telescopic],
+    image: PRODUCT_IMAGES.tiltTowerTall,
+    images: [PRODUCT_IMAGES.tiltTowerTall, PRODUCT_IMAGES.tiltTowerFront],
+    gallery: [PRODUCT_IMAGES.tiltTowerTall, PRODUCT_IMAGES.tiltTowerFront],
     specifications: {
       'Model': 'CWS 111',
       'Type': 'Telescopic Ladder Lift',
@@ -204,8 +176,9 @@ export const PRODUCTS = [
     material: 'Mild steel & aluminium',
     keySpec: 'Working Height: ~50 ft | Platform: ~48 ft',
     shortDescription: 'High-reach tiltable tower ladder with dedicated personnel & tool bucket, 4 heavy-duty wheels, and 4 adjustable stabilizers.',
-    image: img115bBucket,
-    gallery: [img115bBucket],
+    image: PRODUCT_IMAGES.tiltTowerRaised,
+    images: [PRODUCT_IMAGES.tiltTowerRaised, PRODUCT_IMAGES.tiltTowerAngle1],
+    gallery: [PRODUCT_IMAGES.tiltTowerRaised, PRODUCT_IMAGES.tiltTowerAngle1],
     specifications: {
       'Model': 'CWS 115B',
       'Type': 'Tiltable Tower Ladder with Bucket',
@@ -237,8 +210,9 @@ export const PRODUCTS = [
     material: 'Aluminium ladder with MS industrial trolley frame',
     keySpec: 'Manual Winch Operation | Mobile Trolley Base',
     shortDescription: 'Aluminium ladder with MS industrial trolley frame, manual winch operation, work basket, and safety stabilizers.',
-    image: img111Bucket,
-    gallery: [img111Bucket, img111Sheet],
+    image: PRODUCT_IMAGES.tiltTowerRaised,
+    images: [PRODUCT_IMAGES.tiltTowerRaised, PRODUCT_IMAGES.tiltTowerAngle2],
+    gallery: [PRODUCT_IMAGES.tiltTowerRaised, PRODUCT_IMAGES.tiltTowerAngle2],
     specifications: {
       'Model': 'CWS 111',
       'Type': 'Aluminium Tiltable Tower Ladder with Bucket',
@@ -277,8 +251,9 @@ export const PRODUCTS = [
     material: 'Aluminium (FRP also available)',
     keySpec: 'Safety Hand Rail | Ribbed Steps & Anti-Slip Shoes',
     shortDescription: 'A-type high-strength ladder with ergonomic safety hand rail, corrosion-resistant build, and ribbed non-slip steps.',
-    image: img108Handrail,
-    gallery: [img108Handrail],
+    image: PRODUCT_IMAGES.wallSupportWhite,
+    images: [PRODUCT_IMAGES.wallSupportWhite, PRODUCT_IMAGES.wallSupportFloor, PRODUCT_IMAGES.wallSupport400],
+    gallery: [PRODUCT_IMAGES.wallSupportWhite, PRODUCT_IMAGES.wallSupportFloor, PRODUCT_IMAGES.wallSupport400],
     specifications: {
       'Model': 'Not specified',
       'Material': 'High-quality aluminium (FRP available upon request)',
@@ -306,8 +281,9 @@ export const PRODUCTS = [
     material: 'Non-conductive fibreglass',
     keySpec: 'Total Length: ~24 ft | Weight: < 40 kg',
     shortDescription: 'Non-conductive fibreglass wall extension ladder with round fully serrated tempered rungs and rope-operated locking system.',
-    image: img244Extension,
-    gallery: [img244Extension],
+    image: null,
+    images: [],
+    gallery: [],
     specifications: {
       'Model': 'CWS 244',
       'Material': 'Non-conductive Fibreglass side rails with tempered rungs',
@@ -339,8 +315,9 @@ export const PRODUCTS = [
     material: 'FRP with aluminium steps',
     keySpec: 'Total Length: 14 ft | Step Size: 4 in',
     shortDescription: 'Self-supported fiberglass platform ladder featuring heavy bottom gusset bracing, rubber bumpers, and slip-resistant aluminium feet.',
-    image: img242Platform,
-    gallery: [img242Platform, img242Trestle],
+    image: null,
+    images: [],
+    gallery: [],
     specifications: {
       'Model': 'CWS 242',
       'Material': 'FRP with aluminium steps',
@@ -370,8 +347,9 @@ export const PRODUCTS = [
     material: 'FRP',
     keySpec: 'Total Length: 14 ft | Weight: < 20 kg',
     shortDescription: 'Specialized 14 ft fiberglass shelf ladder designed for narrow aisle and electrical stockroom access with heavy gusset bracing.',
-    image: img243Shelf,
-    gallery: [img243Shelf],
+    image: null,
+    images: [],
+    gallery: [],
     specifications: {
       'Model': 'CWS 243',
       'Material': 'FRP (Fiberglass Reinforced Plastic)',
@@ -401,8 +379,9 @@ export const PRODUCTS = [
     material: 'Heavy-Duty Mild Steel',
     keySpec: 'Max Working Height: 16 m | Safe Load: 500–1000 kg',
     shortDescription: '16-meter hydraulic scissor lift with a massive 1500×2500 mm working deck engineered for heavy industrial installation and maintenance.',
-    image: img303Scissor,
-    gallery: [img303Scissor],
+    image: null,
+    images: [],
+    gallery: [],
     specifications: {
       'Model': 'CWS 303',
       'Maximum Working Height': '16 Meter',
@@ -430,8 +409,9 @@ export const PRODUCTS = [
     material: 'Powder-coated mild steel frame',
     keySpec: 'SWL: 350 kg | 210 L Drums | 360° Rotation',
     shortDescription: 'Hand-operated hydraulic drum lifter with 360° gear rotation and positive locking for standard 210L steel drums.',
-    image: img307Drum,
-    gallery: [img307Drum],
+    image: null,
+    images: [],
+    gallery: [],
     specifications: {
       'Model': 'CWS 307',
       'Safe Working Load (SWL)': '350 kg',
@@ -461,8 +441,9 @@ export const PRODUCTS = [
     material: 'High-strength Aluminium Mast & Steel Chassis',
     keySpec: 'Working Height: 12 m | Load: 200 kg | 1.1 kW Motor',
     shortDescription: 'Dual-mast powered vertical personnel lift with 12m working height, 1.1 kW electric motor, and outrigger stabilizers.',
-    image: img303Mast,
-    gallery: [img303Mast],
+    image: null,
+    images: [],
+    gallery: [],
     specifications: {
       'Model': 'CWS 303',
       'Lifting Height': '10,000 mm / 10.0 m',
@@ -494,8 +475,9 @@ export const PRODUCTS = [
     material: 'Mild steel with chequered plate',
     keySpec: 'Capacity: Min 500 kg | 1200 × 800 mm Deck',
     shortDescription: 'Heavy-duty industrial platform transport trolley with 3mm minimum chequered steel deck and 200mm solid rubber/PU castors.',
-    image: img308Trolley,
-    gallery: [img308Trolley],
+    image: null,
+    images: [],
+    gallery: [],
     specifications: {
       'Model': 'CWS 308',
       'Load Capacity': 'Minimum 500 kg',
@@ -526,8 +508,9 @@ export const PRODUCTS = [
     material: 'FRP with serrated aluminium steps',
     keySpec: 'Models: CWS 242-2 to 242-10 | ANSI A14.5 & IS 3696',
     shortDescription: 'Self-supported fiberglass trestle ladder with collapsible lockable platform, rail guards, and lockable castor wheels.',
-    image: img242Trestle,
-    gallery: [img242Trestle, img242Series],
+    image: null,
+    images: [],
+    gallery: [],
     specifications: {
       'Model Series': 'CWS 242-2 / CWS 242-6 / CWS 242-8 / CWS 242-10',
       'Material': 'Non-conductive FRP C-Section (80x30x3mm) with serrated aluminium steps (78x37x1.4mm)',
@@ -558,8 +541,9 @@ export const PRODUCTS = [
     material: 'Aluminium',
     keySpec: 'Self-Supporting | Telescopic Extension | Mobility Wheels',
     shortDescription: 'Free-standing telescopic aluminium extension ladder with heavy-duty mobility wheels and dual-side safety locking arrangement.',
-    image: img105Wheels,
-    gallery: [img105Wheels],
+    image: PRODUCT_IMAGES.extWheelsFull,
+    images: [PRODUCT_IMAGES.extWheelsFull, PRODUCT_IMAGES.extWheelsSide, PRODUCT_IMAGES.extWheelsFolded],
+    gallery: [PRODUCT_IMAGES.extWheelsFull, PRODUCT_IMAGES.extWheelsSide, PRODUCT_IMAGES.extWheelsFolded],
     specifications: {
       'Model': 'CWS 105',
       'Type': 'Self Support Extension Ladder',
@@ -587,8 +571,9 @@ export const PRODUCTS = [
     material: 'Aluminium',
     keySpec: '200 × 200 × 300 mm | Load: 150 kg | IS 3696',
     shortDescription: 'Compact, ultra-lightweight aluminium industrial stool ladder built to IS 3696 specifications for low-level tasks.',
-    image: img130Stool,
-    gallery: [img130Stool],
+    image: null,
+    images: [],
+    gallery: [],
     specifications: {
       'Model': 'CWS 130',
       'Material': 'Aluminium',
@@ -616,8 +601,9 @@ export const PRODUCTS = [
     material: 'Aluminium with MS support frame',
     keySpec: 'Height: 2250 mm | Platform: 540 mm | Parking Jacks',
     shortDescription: 'Heavy-duty 2250mm platform trolley step ladder with 3mm chequered plate, brake/swivel castors, and parking jacks.',
-    image: img115Step2250,
-    gallery: [img115Step2250, img115StepIS4571],
+    image: PRODUCT_IMAGES.trolleyLadder2,
+    images: [PRODUCT_IMAGES.trolleyLadder2, PRODUCT_IMAGES.trolleyLadder1, PRODUCT_IMAGES.trolleyLadderSide],
+    gallery: [PRODUCT_IMAGES.trolleyLadder2, PRODUCT_IMAGES.trolleyLadder1, PRODUCT_IMAGES.trolleyLadderSide],
     specifications: {
       'Model': 'CWS 115',
       'Height': '2250 mm',
@@ -647,8 +633,9 @@ export const PRODUCTS = [
     material: 'Aluminium',
     keySpec: '3 Meter Height | CWS Branded Top Cap Tray',
     shortDescription: '3-meter industrial step ladder with grooved non-slip steps, sturdy side spreaders, and utility tool tray top cap.',
-    image: img108Step3m,
-    gallery: [img108Step3m],
+    image: PRODUCT_IMAGES.aStep1White,
+    images: [PRODUCT_IMAGES.aStep1White, PRODUCT_IMAGES.aStep7Plus1White, PRODUCT_IMAGES.aStep4Plus1White, PRODUCT_IMAGES.aStep1Floor, PRODUCT_IMAGES.aStepDetail],
+    gallery: [PRODUCT_IMAGES.aStep1White, PRODUCT_IMAGES.aStep7Plus1White, PRODUCT_IMAGES.aStep4Plus1White, PRODUCT_IMAGES.aStep1Floor, PRODUCT_IMAGES.aStepDetail],
     specifications: {
       'Model': 'CWS 108',
       'Height': '3 Meter',
@@ -676,8 +663,9 @@ export const PRODUCTS = [
     material: 'FRP / fibreglass',
     keySpec: 'Height: 8 ft | Non-Conductive | Slip-Resistant Steps',
     shortDescription: '8-foot heavy-duty fiberglass step ladder designed for certified electrical safety, wide steps, and rugged rubber shoes.',
-    image: img242Step8ft,
-    gallery: [img242Step8ft],
+    image: null,
+    images: [],
+    gallery: [],
     specifications: {
       'Model': 'CWS 242',
       'Height': '8 ft',
@@ -705,8 +693,9 @@ export const PRODUCTS = [
     material: 'Aluminium',
     keySpec: 'Open Height: 33–39 ft | 4 Parking Jacks | 24×24" Deck',
     shortDescription: '11-meter aluminium tiltable tower ladder with 4 heavy parking jacks, fluted pipe rungs, and steel-wire-rope dual-side locks.',
-    image: img111Mtr,
-    gallery: [img111Mtr],
+    image: PRODUCT_IMAGES.tiltTowerAngle1,
+    images: [PRODUCT_IMAGES.tiltTowerAngle1, PRODUCT_IMAGES.tiltTowerAngle2, PRODUCT_IMAGES.tiltTowerFront],
+    gallery: [PRODUCT_IMAGES.tiltTowerAngle1, PRODUCT_IMAGES.tiltTowerAngle2, PRODUCT_IMAGES.tiltTowerFront],
     specifications: {
       'Model': 'CWS 111-MTR',
       'Ladder Open Height': '33–39 feet',
@@ -740,8 +729,9 @@ export const PRODUCTS = [
     material: 'Mild Steel',
     keySpec: 'Load: 150–500 kg | Min 6 m Height | 150 Ah Battery',
     shortDescription: 'Battery & manual operated mobile hydraulic scissor lift with minimum 6m height, 2ft deck extension, and stabilizer outriggers.',
-    image: img301Scissor,
-    gallery: [img301Scissor],
+    image: null,
+    images: [],
+    gallery: [],
     specifications: {
       'Model': 'CWS 301',
       'Lift Type': 'Mobile Scissor Lift',
@@ -776,8 +766,9 @@ export const PRODUCTS = [
     material: 'Aluminium alloy with mild-steel support structure',
     keySpec: 'Extendable: 15.24 m (50 ft) | 300 kg Max Load',
     shortDescription: 'Heavy-duty square section tower ladder extending to 15.24m (closed: 6.14m) with winch self-locking, designed for 220kV switchyard operations.',
-    image: img111Square,
-    gallery: [img111Square],
+    image: PRODUCT_IMAGES.tiltTowerAngle2,
+    images: [PRODUCT_IMAGES.tiltTowerAngle2, PRODUCT_IMAGES.tiltTowerFront],
+    gallery: [PRODUCT_IMAGES.tiltTowerAngle2, PRODUCT_IMAGES.tiltTowerFront],
     specifications: {
       'Model': 'CWS 111',
       'Closed Height': '6.14 m',
@@ -809,8 +800,9 @@ export const PRODUCTS = [
     material: 'Aluminium',
     keySpec: 'Reach: 51–67 ft | Load: 301–400 kg',
     shortDescription: 'High-elevation tiltable tower ladder reaching 51–67 feet with side-lock fittings, steel wire rope locks, and 301–400 kg load capacity.',
-    image: img111NoBucket,
-    gallery: [img111NoBucket],
+    image: PRODUCT_IMAGES.tiltTowerFront,
+    images: [PRODUCT_IMAGES.tiltTowerFront, PRODUCT_IMAGES.tiltTowerAngle1],
+    gallery: [PRODUCT_IMAGES.tiltTowerFront, PRODUCT_IMAGES.tiltTowerAngle1],
     specifications: {
       'Model': 'CWS 111',
       'Reach Height': '51–67 feet',
@@ -844,8 +836,9 @@ export const PRODUCTS = [
     material: 'Non-conductive fibreglass with aluminium steps',
     keySpec: 'Height: 12 ft | Non-Conductive | Slip-Resistant Steps',
     shortDescription: '12-foot tall non-conductive fiberglass step trestle ladder with slip-resistant aluminium steps for heavy industrial electrical maintenance.',
-    image: img242Trestle12ft,
-    gallery: [img242Trestle12ft],
+    image: null,
+    images: [],
+    gallery: [],
     specifications: {
       'Model': 'CWS 242',
       'Height': '12 ft tall',
@@ -872,8 +865,9 @@ export const PRODUCTS = [
     material: 'Aluminium',
     keySpec: 'Height: 14 m | 1.4 × 1.8–2 m Base | EN 1004 Ref',
     shortDescription: '14-meter double width self-supporting mobile aluminium tower with internal stairway ladders referenced to EN 1004.',
-    image: img101Tower14m,
-    gallery: [img101Tower14m, img101Scaffolding],
+    image: PRODUCT_IMAGES.scaffoldTowerDoubleWidth,
+    images: [PRODUCT_IMAGES.scaffoldTowerDoubleWidth, PRODUCT_IMAGES.scaffoldTowerZigzag, PRODUCT_IMAGES.scaffoldTowerZigzagAlt, PRODUCT_IMAGES.scaffoldTowerDoubleWidth960, PRODUCT_IMAGES.scaffoldTowerErection],
+    gallery: [PRODUCT_IMAGES.scaffoldTowerDoubleWidth, PRODUCT_IMAGES.scaffoldTowerZigzag, PRODUCT_IMAGES.scaffoldTowerZigzagAlt, PRODUCT_IMAGES.scaffoldTowerDoubleWidth960, PRODUCT_IMAGES.scaffoldTowerErection],
     specifications: {
       'Model': 'CWS 101',
       'Height': '14 Meter',
@@ -901,8 +895,9 @@ export const PRODUCTS = [
     material: 'High grade light-weight Aluminium',
     keySpec: '7 Steps + 1 Platform | Load: 150 kg | Weight: 5–7 kg',
     shortDescription: 'Foldable 7 step + 1 platform aluminium ladder with 58×242cm dimensions and 150kg safe load capacity.',
-    image: img108Foldable7,
-    gallery: [img108Foldable7],
+    image: PRODUCT_IMAGES.aStep7Plus1White,
+    images: [PRODUCT_IMAGES.aStep7Plus1White, PRODUCT_IMAGES.aStep1White, PRODUCT_IMAGES.aStepDetail],
+    gallery: [PRODUCT_IMAGES.aStep7Plus1White, PRODUCT_IMAGES.aStep1White, PRODUCT_IMAGES.aStepDetail],
     specifications: {
       'Model': 'CWS 108',
       'Steps': '7 Steps + 1 Platform',
@@ -930,8 +925,9 @@ export const PRODUCTS = [
     material: 'High grade light-weight Aluminium',
     keySpec: '4 Steps + 1 Platform | Height: 173 cm | Load: 150 kg',
     shortDescription: 'Foldable 4 step + 1 platform aluminium ladder with 110cm platform height, 50×172cm dimensions, and 150kg capacity.',
-    image: img108Foldable5,
-    gallery: [img108Foldable5],
+    image: PRODUCT_IMAGES.aStep4Plus1White,
+    images: [PRODUCT_IMAGES.aStep4Plus1White, PRODUCT_IMAGES.aStep1White],
+    gallery: [PRODUCT_IMAGES.aStep4Plus1White, PRODUCT_IMAGES.aStep1White],
     specifications: {
       'Model': 'CWS 108',
       'Steps': '4 Steps + 1 Platform (5 Step series)',
@@ -960,8 +956,9 @@ export const PRODUCTS = [
     material: 'Aluminium',
     keySpec: '1.4 m × 2 m | 12 H-Frames | 8" Jack Wheels',
     shortDescription: 'Complete double-width modular aluminium scaffolding with 12 H-frames, 14 straight braces, 12 cross braces, and 5m side outriggers.',
-    image: img101Scaffolding,
-    gallery: [img101Scaffolding, img101Tower14m],
+    image: PRODUCT_IMAGES.scaffoldTowerZigzag,
+    images: [PRODUCT_IMAGES.scaffoldTowerZigzag, PRODUCT_IMAGES.scaffoldTowerZigzagAlt, PRODUCT_IMAGES.scaffoldTowerZigzagBase, PRODUCT_IMAGES.scaffoldTower768, PRODUCT_IMAGES.scaffoldDetail],
+    gallery: [PRODUCT_IMAGES.scaffoldTowerZigzag, PRODUCT_IMAGES.scaffoldTowerZigzagAlt, PRODUCT_IMAGES.scaffoldTowerZigzagBase, PRODUCT_IMAGES.scaffoldTower768, PRODUCT_IMAGES.scaffoldDetail],
     specifications: {
       'Model': 'CWS 101 Zigzag Model',
       'Dimensions': 'Double Width: 1.4 m × 2.0 m',

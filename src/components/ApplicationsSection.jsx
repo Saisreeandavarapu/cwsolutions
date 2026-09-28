@@ -11,7 +11,7 @@ import imgManufacturing from '../assets/environments/env-manufacturing.jpg';
 import imgConstruction from '../assets/environments/hero-aluminium-access.jpg';
 import imgMaintenance from '../assets/environments/hero-access-facility.jpg';
 import imgLifting from '../assets/environments/hero-lifting-equipment.jpg';
-import imgElectrical from '../assets/products/frp/cws-244-frp-wall-extension-ladder.jpeg';
+const imgElectrical = imgInfrastructure;
 
 const APPLICATION_SECTORS = [
   {

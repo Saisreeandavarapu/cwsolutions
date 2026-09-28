@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Package } from 'lucide-react';
 
 export default function CategoryRail({ categories = [] }) {
   const scrollRef = useRef(null);
@@ -56,12 +56,21 @@ export default function CategoryRail({ categories = [] }) {
           >
             {/* Category Image Box */}
             <div className="relative aspect-[4/3] bg-industrial-bg-subtle p-2 flex items-center justify-center border-b border-gray-100 overflow-hidden">
-              <img
-                src={cat.image}
-                alt={cat.name}
-                className="w-full h-full object-contain"
-                loading="lazy"
-              />
+              {cat.image ? (
+                <img
+                  src={cat.image}
+                  alt={cat.name}
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="w-full h-full flex flex-col items-center justify-center text-center p-2 bg-white">
+                  <Package className="w-6 h-6 text-industrial-steel/40 mb-1" />
+                  <span className="text-[8px] font-mono text-industrial-text-muted font-bold">
+                    SPEC STANDARD
+                  </span>
+                </div>
+              )}
               <span className="absolute top-1.5 right-1.5 bg-industrial-dark/90 text-white font-mono text-[9px] px-1.5 py-0.5 rounded-xs font-semibold">
                 {cat.itemCount}
               </span>

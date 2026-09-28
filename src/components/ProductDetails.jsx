@@ -22,6 +22,8 @@ import ProductQuickView from './ProductQuickView';
 import LightboxModal from './LightboxModal';
 import EnquiryForm from './EnquiryForm';
 
+import { Package } from 'lucide-react';
+
 export default function ProductDetails({
   product,
   relatedProducts = [],
@@ -31,8 +33,12 @@ export default function ProductDetails({
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [quickViewProduct, setQuickViewProduct] = useState(null);
 
-  const images = product.gallery && product.gallery.length > 0 ? product.gallery : [product.image];
-  const activeImage = images[activeImageIndex] || product.image;
+  const images = ((product.images && product.images.length > 0)
+    ? product.images
+    : (product.gallery && product.gallery.length > 0 ? product.gallery : (product.image ? [product.image] : []))
+  ).filter(Boolean);
+
+  const activeImage = images[activeImageIndex] || null;
 
   const validSpecs = Object.entries(product.specifications || {}).filter(
     ([_, value]) => value && String(value).trim() !== ''
@@ -87,30 +93,46 @@ export default function ProductDetails({
           <div className="lg:col-span-6 space-y-3 sm:space-y-4">
             
             {/* Primary Main Image Frame */}
-            <div className="relative aspect-[4/3] bg-white border border-gray-200 rounded-sm p-4 flex items-center justify-center overflow-hidden shadow-subtle group">
-              <motion.img
-                key={activeImageIndex}
-                initial={{ opacity: 0.75, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                src={activeImage}
-                alt={`Creative Work Solutions ${product.name} ${product.model} - view ${activeImageIndex + 1}`}
-                className="w-full h-full object-contain cursor-zoom-in group-hover:scale-105 transition-transform duration-300"
-                onClick={() => setIsLightboxOpen(true)}
-              />
+            <div className="relative aspect-[4/3] bg-white border border-[#D9E1E8] rounded-xs p-4 flex items-center justify-center overflow-hidden shadow-2xs group">
+              {activeImage ? (
+                <>
+                  <motion.img
+                    key={activeImageIndex}
+                    initial={{ opacity: 0.75, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                    src={activeImage}
+                    alt={`Creative Work Solutions ${product.name} ${product.model} - view ${activeImageIndex + 1}`}
+                    className="w-full h-full object-contain cursor-zoom-in group-hover:scale-105 transition-transform duration-300"
+                    onClick={() => setIsLightboxOpen(true)}
+                  />
 
-              {/* Lightbox Zoom Indicator */}
-              <button
-                type="button"
-                onClick={() => setIsLightboxOpen(true)}
-                className="absolute top-3 right-3 bg-white/90 hover:bg-white text-industrial-dark p-2 rounded-sm shadow-sm border border-gray-200 transition-all flex items-center gap-1.5 text-xs font-mono font-semibold"
-                aria-label="Inspect high resolution sheet"
-              >
-                <Maximize2 className="w-3.5 h-3.5 text-industrial-steel" />
-                <span className="hidden sm:inline">Inspect Sheet</span>
-              </button>
+                  {/* Lightbox Zoom Indicator */}
+                  <button
+                    type="button"
+                    onClick={() => setIsLightboxOpen(true)}
+                    className="absolute top-3 right-3 bg-white/95 hover:bg-white text-[#071A2B] p-2 rounded-xs shadow-xs border border-[#D9E1E8] transition-all flex items-center gap-1.5 text-xs font-mono font-semibold cursor-pointer"
+                    aria-label="Inspect high resolution sheet"
+                  >
+                    <Maximize2 className="w-3.5 h-3.5 text-[#1268B3]" />
+                    <span className="hidden sm:inline">Inspect Full Size</span>
+                  </button>
+                </>
+              ) : (
+                <div className="w-full h-full bg-[#F5F7F9] rounded-xs flex flex-col items-center justify-center text-center p-6">
+                  <div className="w-12 h-12 rounded-xs bg-[#FFFFFF] border border-[#D9E1E8] flex items-center justify-center text-[#667085] mb-2.5">
+                    <Package className="w-6 h-6 text-[#667085]" />
+                  </div>
+                  <span className="text-xs font-mono font-bold tracking-wider text-[#111827] uppercase">
+                    IMAGE UNAVAILABLE
+                  </span>
+                  <span className="text-[11px] font-mono text-[#667085] mt-1">
+                    CERTIFIED TECHNICAL SPECIFICATIONS AVAILABLE
+                  </span>
+                </div>
+              )}
 
-              <div className="absolute bottom-3 left-3 bg-industrial-dark/90 text-white text-[10px] font-mono px-2 py-0.5 rounded-xs">
+              <div className="absolute bottom-3 left-3 bg-[#071A2B]/90 text-white text-[10px] font-mono px-2 py-0.5 rounded-2xs">
                 {product.model}
               </div>
             </div>

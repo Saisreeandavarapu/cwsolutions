@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Search, ArrowRight, ChevronRight, X, Menu } from 'lucide-react';
+import { Search, ArrowRight, X, Menu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { COMPANY_INFO } from '../data/company';
 import BrandLogo from './BrandLogo';
@@ -64,13 +64,36 @@ export default function Header({ onRequestQuote }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4">
 
-          {/* 1. BRAND LOGO */}
+          {/* 1. BRAND / COMPANY NAME */}
           <Link
             to="/"
-            className="flex items-center focus:outline-none flex-shrink-0"
+            className="flex items-center gap-2 sm:gap-2.5 lg:gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1268B3] focus-visible:ring-offset-2 rounded-[2px] py-1 select-none flex-shrink-0 group"
             aria-label="Creative Work Solutions Home"
           >
-            <BrandLogo />
+            {/* Authentic CWS Vector Brand Logo */}
+            <div className="relative w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 flex-shrink-0 flex items-center justify-center">
+              <BrandLogo iconOnly size="default" />
+            </div>
+
+            {/* Refined Two-Level Typographic Treatment */}
+            <div className="flex flex-col justify-center min-w-0">
+              {/* Level 1: CREATIVE WORK (small uppercase, medium weight 500-600, wider letter spacing 0.16em) */}
+              <span className="text-[9.5px] sm:text-[10.5px] lg:text-[20px] font-semibold text-[#8E9AA8] group-hover:text-white tracking-[0.16em] uppercase leading-tight transition-colors duration-250 truncate">
+                CREATIVE WORK
+              </span>
+
+              {/* Level 2: SOLUTIONS (bold 700-800, tighter letter spacing 0.03em, with subtle Industrial Blue accent line) */}
+              <div className="flex items-center mt-0.5 leading-none">
+                <span className="text-[14px] sm:text-[16px] lg:text-[17.5px] font-extrabold text-white tracking-[0.03em] uppercase leading-none">
+                  SOLUTIONS
+                </span>
+                {/* Subtle Industrial Blue technical accent line beside SOLUTIONS */}
+                <span
+                  className="inline-block w-3.5 sm:w-4.5 lg:w-5 h-[2px] bg-[#1268B3] ml-1.5 sm:ml-2 rounded-[1px] transition-all duration-250 ease-out group-hover:w-5 sm:group-hover:w-6 lg:group-hover:w-7 group-hover:bg-[#1597E5]"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
           </Link>
 
           {/* 2. CENTER NAVIGATION LINKS (With blue underline indicator) */}
@@ -79,11 +102,10 @@ export default function Header({ onRequestQuote }) {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`relative text-sm font-medium transition-colors py-1 ${
-                  isActive(link.path)
-                    ? 'text-[#1687E8] font-semibold'
-                    : 'text-white/85 hover:text-white'
-                }`}
+                className={`relative text-sm font-medium transition-colors py-1 ${isActive(link.path)
+                  ? 'text-[#1687E8] font-semibold'
+                  : 'text-white/85 hover:text-white'
+                  }`}
               >
                 {link.name}
                 {isActive(link.path) && (
@@ -153,11 +175,10 @@ export default function Header({ onRequestQuote }) {
                 >
                   <Link
                     to={link.path}
-                    className={`block px-3 py-2.5 rounded-sm text-sm font-semibold transition-colors ${
-                      isActive(link.path)
-                        ? 'bg-[#2567A8]/20 text-[#1687E8]'
-                        : 'text-white/85 hover:text-white hover:bg-white/5'
-                    }`}
+                    className={`block px-3 py-2.5 rounded-sm text-sm font-semibold transition-colors ${isActive(link.path)
+                      ? 'bg-[#2567A8]/20 text-[#1687E8]'
+                      : 'text-white/85 hover:text-white hover:bg-white/5'
+                      }`}
                   >
                     {link.name}
                   </Link>

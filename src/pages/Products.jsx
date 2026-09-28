@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Search, X, SlidersHorizontal, RotateCcw, PackageCheck } from 'lucide-react';
+import { Search, X, SlidersHorizontal, RotateCcw, PackageCheck, Package, Layers } from 'lucide-react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { PRODUCTS } from '../data/products';
+import { CATEGORY_THUMBNAILS } from '../data/productImages.js';
 import ProductGrid from '../components/ProductGrid';
 import ProductFilter from '../components/ProductFilter';
 import ProductQuickView from '../components/ProductQuickView';
@@ -240,10 +241,11 @@ export default function Products({ onRequestQuote }) {
             )}
           </div>
 
-          {/* 3. CATEGORY EXPLORER (Section 3: Minimal technical category buttons) */}
-          <div className="mt-5 pt-4 border-t border-[#D9E1E8]/70">
+          {/* 3. CATEGORY EXPLORER (Section 3: Category Buttons & Visual Discovery Rail) */}
+          <div className="mt-5 pt-4 border-t border-[#D9E1E8]/70 space-y-4">
+            {/* Quick text tabs */}
             <div
-              className="flex overflow-x-auto gap-2 py-1.5 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar items-center"
+              className="flex overflow-x-auto gap-2 py-1 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar items-center"
               style={{
                 WebkitOverflowScrolling: 'touch',
                 scrollbarWidth: 'none',
@@ -254,6 +256,7 @@ export default function Products({ onRequestQuote }) {
             >
               {categories.map((cat) => {
                 const isSelected = selectedCategory.toLowerCase() === cat.toLowerCase();
+                const count = cat === 'All' ? PRODUCTS.length : PRODUCTS.filter(p => p.category.toLowerCase() === cat.toLowerCase()).length;
                 return (
                   <button
                     key={cat}
@@ -261,16 +264,78 @@ export default function Products({ onRequestQuote }) {
                     role="tab"
                     aria-selected={isSelected}
                     onClick={() => handleSelectCategory(cat)}
-                    className={`flex-shrink-0 px-3.5 py-2 text-xs font-mono uppercase tracking-wider transition-all duration-200 border rounded-sm cursor-pointer whitespace-nowrap relative ${
+                    className={`flex-shrink-0 px-3 py-1.5 text-xs font-mono uppercase tracking-wider transition-all duration-200 border rounded-2xs cursor-pointer whitespace-nowrap relative flex items-center gap-1.5 ${
                       isSelected
-                        ? 'bg-[#1268B3]/5 text-[#1268B3] border-[#1268B3] font-bold shadow-2xs'
-                        : 'bg-transparent text-[#667085] border-transparent hover:text-[#111827] hover:bg-white/70'
+                        ? 'bg-[#1268B3]/10 text-[#1268B3] border-[#1268B3] font-bold shadow-2xs'
+                        : 'bg-[#FFFFFF] text-[#667085] border-[#D9E1E8] hover:text-[#111827] hover:border-[#667085]'
                     }`}
                   >
                     <span>{cat}</span>
+                    <span className={`text-[10px] px-1 py-0.2 rounded-2xs ${isSelected ? 'bg-[#1268B3] text-white' : 'bg-[#F5F7F9] text-[#667085]'}`}>
+                      {count}
+                    </span>
                     {isSelected && (
                       <span className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#1268B3]" />
                     )}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Visual Category Discovery Cards (Real Category Imagery) */}
+            <div
+              className="flex gap-3 overflow-x-auto pb-2 pt-1 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar snap-x"
+              style={{
+                WebkitOverflowScrolling: 'touch',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none'
+              }}
+              aria-label="Category visual cards"
+            >
+              {categories.filter(c => c !== 'All').map((cat) => {
+                const isSelected = selectedCategory.toLowerCase() === cat.toLowerCase();
+                const thumbnail = CATEGORY_THUMBNAILS[cat] || null;
+                const count = PRODUCTS.filter(p => p.category.toLowerCase() === cat.toLowerCase()).length;
+
+                return (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => handleSelectCategory(cat)}
+                    className={`flex-shrink-0 w-[140px] sm:w-[160px] p-2.5 rounded-2xs border bg-[#FFFFFF] transition-all duration-200 text-left flex flex-col justify-between group cursor-pointer snap-start ${
+                      isSelected
+                        ? 'border-[#1268B3] ring-2 ring-[#1268B3]/25 shadow-xs bg-[#1268B3]/2'
+                        : 'border-[#D9E1E8] hover:border-[#1268B3] hover:shadow-2xs'
+                    }`}
+                  >
+                    {/* Image Area */}
+                    <div className="w-full aspect-[4/3] bg-[#FFFFFF] rounded-2xs border border-[#D9E1E8]/70 p-1.5 flex items-center justify-center overflow-hidden mb-2">
+                      {thumbnail ? (
+                        <img
+                          src={thumbnail}
+                          alt={`${cat} representative imagery`}
+                          className="w-full h-full object-contain filter contrast-[1.02] transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-[#F5F7F9] flex flex-col items-center justify-center text-center p-1">
+                          <Package className="w-5 h-5 text-[#667085]/60 mb-0.5" />
+                          <span className="text-[8px] font-mono font-bold tracking-wider text-[#667085] uppercase">
+                            CATALOGUE
+                          </span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Title & Count */}
+                    <div>
+                      <div className="text-[11px] font-bold text-[#111827] group-hover:text-[#1268B3] transition-colors leading-tight line-clamp-1">
+                        {cat}
+                      </div>
+                      <div className="text-[10px] font-mono text-[#667085] mt-0.5">
+                        {count} Models
+                      </div>
+                    </div>
                   </button>
                 );
               })}

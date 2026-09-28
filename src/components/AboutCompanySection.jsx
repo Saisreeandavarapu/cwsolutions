@@ -13,7 +13,9 @@ import {
 } from 'lucide-react';
 import SectionReveal from './SectionReveal';
 import { COMPANY_INFO } from '../data/company';
-import imgProfile from '../assets/products/tower/cws-111-aluminium-tiltable-tower-ladder.jpeg';
+import { PRODUCT_IMAGES } from '../data/productImages.js';
+
+const imgProfile = PRODUCT_IMAGES.tiltTowerFront;
 
 export default function AboutCompanySection({ isStandalonePage = false }) {
   const shouldReduceMotion = useReducedMotion();

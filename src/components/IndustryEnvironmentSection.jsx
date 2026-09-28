@@ -10,8 +10,10 @@ import imgWarehouse from '../assets/environments/env-warehouse.jpg';
 import imgConstruction from '../assets/environments/hero-aluminium-access.jpg';
 import imgManufacturing from '../assets/environments/env-manufacturing.jpg';
 import imgMaintenance from '../assets/environments/hero-access-facility.jpg';
-import imgElectrical from '../assets/products/frp/cws-244-frp-wall-extension-ladder.jpeg';
-import imgFacility from '../assets/products/aluminium/cws-105-platform-step-ladder-extension.jpeg';
+import { PRODUCT_IMAGES } from '../data/productImages';
+
+const imgElectrical = imgInfrastructure;
+const imgFacility = PRODUCT_IMAGES.aStep1White;
 import imgMaterialHandling from '../assets/environments/hero-lifting-equipment.jpg';
 
 const ENVIRONMENTS = [

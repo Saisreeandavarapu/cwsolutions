@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
-import { CATEGORIES } from '../data/categories';
-import CategoryRail from './CategoryRail';
-import SectionReveal from './SectionReveal';
+import { ArrowRight, Package } from 'lucide-react';
+import { CATEGORIES } from '../data/categories.js';
+import CategoryRail from './CategoryRail.jsx';
+import SectionReveal from './SectionReveal.jsx';
 
 export default function CategoryStrip() {
   return (
@@ -42,12 +42,24 @@ export default function CategoryStrip() {
             >
               {/* Category Image Box */}
               <div className="relative aspect-[4/3] bg-industrial-bg-subtle p-4 flex items-center justify-center border-b border-gray-100 overflow-hidden">
-                <img
-                  src={cat.image}
-                  alt={cat.name}
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
+                {cat.image ? (
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center text-center p-3 bg-white">
+                    <Package className="w-8 h-8 text-industrial-steel/40 mb-1.5" />
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-industrial-text-muted font-bold">
+                      Industrial Specs
+                    </span>
+                    <span className="text-[9px] font-mono text-industrial-steel">
+                      Standard Range
+                    </span>
+                  </div>
+                )}
                 <span className="absolute top-2.5 right-2.5 bg-industrial-dark/90 text-white font-mono text-[10px] px-2 py-0.5 rounded-xs font-semibold">
                   {cat.itemCount} Models
                 </span>

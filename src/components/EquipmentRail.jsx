@@ -3,13 +3,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import SectionReveal from './SectionReveal';
 
-// Genuine Creative Work Solutions Product Images
-import imgAluminium from '../assets/products/aluminium/cws-105-platform-step-ladder-extension.jpeg';
-import imgFRP from '../assets/products/frp/cws-244-frp-wall-extension-ladder.jpeg';
-import imgTower from '../assets/products/tower/cws-111-aluminium-tiltable-tower-ladder.jpeg';
-import imgScissor from '../assets/products/lifting/cws-303-16m-hydraulic-scissor-lift.jpeg';
-import imgHandling from '../assets/products/material-handling/cws-307-hydraulic-drum-lifter.jpeg';
-import imgScaffold from '../assets/products/scaffolding/cws-101-aluminium-scaffolding-zigzag-double-width.jpeg';
+import { PRODUCT_IMAGES } from '../data/productImages';
+import { Package } from 'lucide-react';
 
 const EQUIPMENT_CATEGORIES = [
   {
@@ -18,47 +13,47 @@ const EQUIPMENT_CATEGORIES = [
     name: 'Aluminium Ladders',
     tag: 'LIGHTWEIGHT ACCESS',
     link: '/products?category=Aluminium+Ladders',
-    image: imgAluminium,
-  },
-  {
-    id: 'frp-ladders',
-    num: '02',
-    name: 'FRP Ladders',
-    tag: 'NON-CONDUCTIVE',
-    link: '/products?category=FRP+Ladders',
-    image: imgFRP,
+    image: PRODUCT_IMAGES.aStep1White,
   },
   {
     id: 'tower-ladders',
-    num: '03',
+    num: '02',
     name: 'Tower Ladders',
     tag: 'UP TO 50 FT REACH',
     link: '/products?category=Tower+Ladders',
-    image: imgTower,
+    image: PRODUCT_IMAGES.tiltTowerFront,
   },
   {
-    id: 'scissor-lifts',
+    id: 'trolley-ladders',
+    num: '03',
+    name: 'Trolley Ladders',
+    tag: 'WAREHOUSE MOBILITY',
+    link: '/products?category=Trolley+Ladders',
+    image: PRODUCT_IMAGES.trolleyLadder1,
+  },
+  {
+    id: 'extension-ladders',
     num: '04',
-    name: 'Scissor Lifts',
-    tag: 'POWERED VERTICAL',
-    link: '/products?category=Scissor+Lifts',
-    image: imgScissor,
-  },
-  {
-    id: 'material-handling',
-    num: '05',
-    name: 'Material Handling',
-    tag: 'DRUM & FREIGHT',
-    link: '/products?category=Material+Handling',
-    image: imgHandling,
+    name: 'Extension Ladders',
+    tag: 'TELESCOPIC REACH',
+    link: '/products?category=Extension+Ladders',
+    image: PRODUCT_IMAGES.extWheelsFull,
   },
   {
     id: 'scaffolding',
-    num: '06',
+    num: '05',
     name: 'Scaffolding Towers',
     tag: 'DOUBLE WIDTH STABILITY',
     link: '/products?category=Scaffolding',
-    image: imgScaffold,
+    image: PRODUCT_IMAGES.scaffoldTowerDoubleWidth,
+  },
+  {
+    id: 'frp-ladders',
+    num: '06',
+    name: 'FRP Ladders',
+    tag: 'NON-CONDUCTIVE',
+    link: '/products?category=FRP+Ladders',
+    image: null,
   },
 ];
 
@@ -152,12 +147,21 @@ export default function EquipmentRail() {
               {/* Product Photograph Canvas */}
               <div>
                 <div className="relative aspect-[4/3] bg-white rounded-xs border border-[#D9E1E8]/70 p-3 flex items-center justify-center overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-full object-contain filter contrast-[1.02] transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
+                  {item.image ? (
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-contain filter contrast-[1.02] transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-[#F5F7F9] flex flex-col items-center justify-center text-center p-3">
+                      <Package className="w-7 h-7 text-[#667085]/60 mb-1" />
+                      <span className="text-[10px] font-mono font-bold tracking-wider text-[#667085] uppercase">
+                        Spec Sheet
+                      </span>
+                    </div>
+                  )}
                   <div className="absolute top-2 left-2 font-mono text-[10px] font-bold text-[#667085] bg-[#F5F7F9] px-1.5 py-0.5 rounded-xs">
                     {item.num}
                   </div>
