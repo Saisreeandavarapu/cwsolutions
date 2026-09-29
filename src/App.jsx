@@ -13,6 +13,7 @@ import About from './pages/About';
 import Clients from './pages/Clients';
 import Products from './pages/Products';
 import ProductDetailPage from './pages/ProductDetailPage';
+import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 
 // Scroll to top helper on route changes
@@ -84,6 +85,14 @@ function AnimatedRoutes({ handleOpenQuoteModal }) {
           element={
             <PageTransition>
               <ProductDetailPage onRequestQuote={handleOpenQuoteModal} />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/gallery"
+          element={
+            <PageTransition>
+              <Gallery onRequestQuote={handleOpenQuoteModal} />
             </PageTransition>
           }
         />

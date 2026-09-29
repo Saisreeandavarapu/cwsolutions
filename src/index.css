@@ -176,3 +176,64 @@
     transform: none !important;
   }
 }
+
+/* Product Gallery Infinite Moving Marquee System */
+@keyframes gallerySlideLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes gallerySlideRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.gallery-track-left {
+  display: flex;
+  width: max-content;
+  animation: gallerySlideLeft var(--marquee-speed, 70s) linear infinite;
+  will-change: transform;
+}
+
+.gallery-track-right {
+  display: flex;
+  width: max-content;
+  animation: gallerySlideRight var(--marquee-speed, 60s) linear infinite;
+  will-change: transform;
+}
+
+.gallery-track-hover-pause:hover {
+  animation-play-state: paused;
+}
+
+.gallery-track-paused {
+  animation-play-state: paused !important;
+}
+
+.gallery-edge-mask {
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+@media (max-width: 640px) {
+  .gallery-edge-mask {
+    mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track-left,
+  .gallery-track-right {
+    animation: none !important;
+    transform: none !important;
+  }
+}

@@ -5,6 +5,7 @@ import TrustHighlights from '../components/TrustHighlights';
 import CategoryStrip from '../components/CategoryStrip';
 import LadderShowcase from '../components/LadderShowcase';
 import FeaturedProducts from '../components/FeaturedProducts';
+import ProductGallery from '../components/gallery/ProductGallery';
 import AboutCompanySection from '../components/AboutCompanySection';
 import QualitySection from '../components/QualitySection';
 import ApplicationsSection from '../components/ApplicationsSection';
@@ -35,6 +36,9 @@ export default function Home({ onRequestQuote }) {
 
       {/* 4. FEATURED ACCESS & MATERIAL EQUIPMENT */}
       <FeaturedProducts onRequestQuote={onRequestQuote} />
+
+      {/* 4B. PREMIUM WEARNEAR PRODUCT GALLERY - 3-ROW CONTINUOUS MOVING IMAGE WALL */}
+      <ProductGallery onRequestQuote={onRequestQuote} />
 
       {/* 5. ABOUT CREATIVE WORK SOLUTIONS: OVERVIEW, OFFERINGS, APPROACH & VERIFIED INFO */}
       <AboutCompanySection isStandalonePage={false} />
